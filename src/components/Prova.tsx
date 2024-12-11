@@ -5,8 +5,7 @@ export interface IButtonProps {};
 const Prova: React.FC<IButtonProps> = () => {
     return (
         <button>bottone</button>
-    );
-};
+    )
+}
 
-export { Prova };
-
+export default Prova;
