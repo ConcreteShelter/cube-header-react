@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import React from "react";
 //import cubeLogoPic from "../assets/pccube-solo-cubo.png";
 
-interface HeaderProps {
+export interface HeaderProps {
   nomeProva: string;
 }
 
