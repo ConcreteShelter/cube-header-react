@@ -3,7 +3,7 @@ import { useState } from "react";
 //import {RootState} from "../../types";
 import { Link } from "react-router-dom";
 import React from "react";
-const Header = ({ nomeProva }) => {
+const Header = ({ cubeLogoPic }) => {
     // Stato per gestire la visualizzazione del dropdown
     const [showDropdown, setShowDropdown] = useState(false);
     const [showUserDropdown, setShowUserDropdown] = useState(false);
@@ -30,13 +30,18 @@ const Header = ({ nomeProva }) => {
     // };
     return (React.createElement(React.Fragment, null,
         React.createElement("header", { className: "bg-black text-white shadow-md rounded px-4 flex items-center" },
-            React.createElement("div", { className: "flex items-center justify-center lg:justify-start" }),
+            React.createElement("div", { className: "flex items-center justify-center lg:justify-start" },
+                React.createElement("img", { src: cubeLogoPic, alt: "Go to Cube Portal", 
+                    //onClick={redirectCubePortal}
+                    style: {
+                        width: "40px",
+                        height: "40px",
+                        cursor: "pointer",
+                    } })),
             React.createElement("div", { className: "grid grid-cols-1 lg:grid-cols-3 w-full items-center" },
                 React.createElement("div", { className: "flex justify-start" }),
                 React.createElement("div", { className: "flex justify-center p-3" },
-                    React.createElement(Link, { className: "flex justify-center items-center", to: "/" })),
-                React.createElement("div", { className: "flex items-center justify-center lg:justify-end" },
-                    React.createElement("p", null, "ciaone"))))));
+                    React.createElement(Link, { className: "flex justify-center items-center", to: "/" }))))));
 };
 export default Header;
 //# sourceMappingURL=Header.js.map

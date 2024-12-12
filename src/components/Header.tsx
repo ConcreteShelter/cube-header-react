@@ -9,10 +9,10 @@ import React from "react";
 //import cubeLogoPic from "../assets/pccube-solo-cubo.png";
 
 export interface HeaderProps {
-  nomeProva: string;
+    cubeLogoPic: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ nomeProva }) => {
+const Header: React.FC<HeaderProps> = ({ cubeLogoPic }) => {
   // Stato per gestire la visualizzazione del dropdown
   const [showDropdown, setShowDropdown] = useState(false);
   const [showUserDropdown, setShowUserDropdown] = useState(false);
@@ -48,16 +48,16 @@ const Header: React.FC<HeaderProps> = ({ nomeProva }) => {
     <>
       <header className="bg-black text-white shadow-md rounded px-4 flex items-center">
         <div className="flex items-center justify-center lg:justify-start">
-          {/* <img
+          <img
             src={cubeLogoPic}
             alt={"Go to Cube Portal"}
-            onClick={redirectCubePortal}
+            //onClick={redirectCubePortal}
             style={{
               width: "40px",
               height: "40px",
               cursor: "pointer",
             }}
-          /> */}
+          />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 w-full items-center">
@@ -91,9 +91,6 @@ const Header: React.FC<HeaderProps> = ({ nomeProva }) => {
             />
           </div>
         </div> */}
-          <div className="flex items-center justify-center lg:justify-end">
-            <p>{"ciaone"}</p>
-          </div>
         </div>
       </header>
     </>
