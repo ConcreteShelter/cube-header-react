@@ -6,9 +6,11 @@ import { Link } from "react-router-dom";
 //import FlagDropdown from "./FlagDropDown";
 import { useSelector } from "react-redux";
 import React from "react";
+import { envVariables } from "../types";
+
 export interface HeaderProps {
     cubeLogoPic: string;
-    env: any;
+    env: envVariables;
 }
 
 const Header: React.FC<HeaderProps> = ({ cubeLogoPic, env }) => {

@@ -1,7 +1,8 @@
 import React from "react";
+import { envVariables } from "../types";
 export interface HeaderProps {
     cubeLogoPic: string;
-    env: any;
+    env: envVariables;
 }
 declare const Header: React.FC<HeaderProps>;
 export default Header;
