@@ -6,13 +6,12 @@ import { Link } from "react-router-dom";
 //import FlagDropdown from "./FlagDropDown";
 import { useSelector } from "react-redux";
 import React from "react";
-//import cubeLogoPic from "../assets/pccube-solo-cubo.png";
-
 export interface HeaderProps {
     cubeLogoPic: string;
+    env: any;
 }
 
-const Header: React.FC<HeaderProps> = ({ cubeLogoPic }) => {
+const Header: React.FC<HeaderProps> = ({ cubeLogoPic, env }) => {
   // Stato per gestire la visualizzazione del dropdown
   const [showDropdown, setShowDropdown] = useState(false);
   const [showUserDropdown, setShowUserDropdown] = useState(false);
@@ -22,6 +21,8 @@ const Header: React.FC<HeaderProps> = ({ cubeLogoPic }) => {
     name: "nome",
     surname: "cognome",
   };
+
+  console.log(env);
 
   //const {keycloak} = useKeycloak();
 
@@ -39,10 +40,10 @@ const Header: React.FC<HeaderProps> = ({ cubeLogoPic }) => {
     setShowDropdown(false);
   };
 
-  // const redirectCubePortal = () => {
-  //     const env = import.meta.env;
-  //     window.location.href = env.VITE_REDIRECT_PORTAL;
-  // };
+//   const redirectCubePortal = () => {
+//       const env = import.meta.env;
+//       window.location.href = env.VITE_REDIRECT_PORTAL;
+//   };
 
   return (
     <>

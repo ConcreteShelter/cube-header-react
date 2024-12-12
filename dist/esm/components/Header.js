@@ -3,7 +3,7 @@ import { useState } from "react";
 //import {RootState} from "../../types";
 import { Link } from "react-router-dom";
 import React from "react";
-const Header = ({ cubeLogoPic }) => {
+const Header = ({ cubeLogoPic, env }) => {
     // Stato per gestire la visualizzazione del dropdown
     const [showDropdown, setShowDropdown] = useState(false);
     const [showUserDropdown, setShowUserDropdown] = useState(false);
@@ -12,6 +12,7 @@ const Header = ({ cubeLogoPic }) => {
         name: "nome",
         surname: "cognome",
     };
+    console.log(env);
     //const {keycloak} = useKeycloak();
     // Calcola il nome completo dell'utente
     const fullName = user ? `${user.name || ""} ${user.surname || ""}` : "Utente";
@@ -24,10 +25,10 @@ const Header = ({ cubeLogoPic }) => {
         setShowUserDropdown(!showUserDropdown);
         setShowDropdown(false);
     };
-    // const redirectCubePortal = () => {
-    //     const env = import.meta.env;
-    //     window.location.href = env.VITE_REDIRECT_PORTAL;
-    // };
+    //   const redirectCubePortal = () => {
+    //       const env = import.meta.env;
+    //       window.location.href = env.VITE_REDIRECT_PORTAL;
+    //   };
     return (React.createElement(React.Fragment, null,
         React.createElement("header", { className: "bg-black text-white shadow-md rounded px-4 flex items-center" },
             React.createElement("div", { className: "flex items-center justify-center lg:justify-start" },
