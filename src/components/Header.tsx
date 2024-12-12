@@ -12,9 +12,10 @@ export interface HeaderProps {
   cubeLogoPic: string;
   envVariables: envVariables;
   mainLogoEndpoint: string;
+  redirectPortalUrl: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ cubeLogoPic, envVariables, mainLogoEndpoint }) => {
+const Header: React.FC<HeaderProps> = ({ cubeLogoPic, envVariables, mainLogoEndpoint, redirectPortalUrl }) => {
   // Stato per gestire la visualizzazione del dropdown
   const [showDropdown, setShowDropdown] = useState(false);
   const [showUserDropdown, setShowUserDropdown] = useState(false);
@@ -42,7 +43,7 @@ const Header: React.FC<HeaderProps> = ({ cubeLogoPic, envVariables, mainLogoEndp
   };
 
     const redirectCubePortal = () => {
-        window.location.href = envVariables.VITE_REDIRECT_PORTAL;
+        window.location.href = redirectPortalUrl;
     };
 
   return (
