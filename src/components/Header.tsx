@@ -9,11 +9,13 @@ import React from "react";
 import { envVariables } from "../types";
 
 export interface HeaderProps {
-    cubeLogoPic: string;
-    env: envVariables;
+  cubeLogoPic: string;
+  envVariables: envVariables;
+  mainLogoEndpoint: string;
+  redirectPortalUrl: string;
 }
 
-const Header: React.FC<HeaderProps> = ({ cubeLogoPic, env }) => {
+const Header: React.FC<HeaderProps> = ({ cubeLogoPic, envVariables, mainLogoEndpoint, redirectPortalUrl }) => {
   // Stato per gestire la visualizzazione del dropdown
   const [showDropdown, setShowDropdown] = useState(false);
   const [showUserDropdown, setShowUserDropdown] = useState(false);
@@ -23,8 +25,6 @@ const Header: React.FC<HeaderProps> = ({ cubeLogoPic, env }) => {
     name: "nome",
     surname: "cognome",
   };
-
-  console.log(env);
 
   //const {keycloak} = useKeycloak();
 
@@ -42,10 +42,9 @@ const Header: React.FC<HeaderProps> = ({ cubeLogoPic, env }) => {
     setShowDropdown(false);
   };
 
-//   const redirectCubePortal = () => {
-//       const env = import.meta.env;
-//       window.location.href = env.VITE_REDIRECT_PORTAL;
-//   };
+    const redirectCubePortal = () => {
+        window.location.href = redirectPortalUrl;
+    };
 
   return (
     <>
@@ -54,7 +53,7 @@ const Header: React.FC<HeaderProps> = ({ cubeLogoPic, env }) => {
           <img
             src={cubeLogoPic}
             alt={"Go to Cube Portal"}
-            //onClick={redirectCubePortal}
+            onClick={redirectCubePortal}
             style={{
               width: "40px",
               height: "40px",
@@ -70,11 +69,11 @@ const Header: React.FC<HeaderProps> = ({ cubeLogoPic, env }) => {
           {/* Colonna centrale (logo) */}
           <div className="flex justify-center p-3">
             <Link className="flex justify-center items-center" to={"/"}>
-              {/* <img
-                                src={`${import.meta.env.VITE_BASE_SVG}/devhelper logo.svg`}
-                                alt="Logo"
-                                className="h-[60px]"
-                            /> */}
+              <img
+                src={`${envVariables.VITE_BASE_SVG}/${mainLogoEndpoint}`}
+                alt="Logo"
+                className="h-[60px]"
+              />
             </Link>
           </div>
 
