@@ -3,7 +3,7 @@ import { useState } from "react";
 //import {RootState} from "../../types";
 import { Link } from "react-router-dom";
 import React from "react";
-const Header = ({ cubeLogoPic, envVariables, mainLogoEndpoint, redirectPortalUrl }) => {
+const Header = ({ cubeLogoPic, envVariables, mainLogoEndpoint }) => {
     // Stato per gestire la visualizzazione del dropdown
     const [showDropdown, setShowDropdown] = useState(false);
     const [showUserDropdown, setShowUserDropdown] = useState(false);
@@ -25,7 +25,7 @@ const Header = ({ cubeLogoPic, envVariables, mainLogoEndpoint, redirectPortalUrl
         setShowDropdown(false);
     };
     const redirectCubePortal = () => {
-        window.location.href = redirectPortalUrl;
+        window.location.href = envVariables.VITE_REDIRECT_PORTAL;
     };
     return (React.createElement(React.Fragment, null,
         React.createElement("header", { className: "bg-black text-white shadow-md rounded px-4 flex items-center" },

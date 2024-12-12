@@ -7,4 +7,5 @@ export interface envVariables {
     readonly VITE_REDIRECT_URI: string;
     readonly VITE_BASE_NAME: string;
     readonly VITE_BASE_SVG: string;
+    readonly VITE_REDIRECT_PORTAL: string;
 }
