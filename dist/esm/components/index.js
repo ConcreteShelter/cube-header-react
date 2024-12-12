@@ -1,2 +1,2 @@
-export * from "./Prova";
+export { default as Prova } from "./Prova";
 //# sourceMappingURL=index.js.map
