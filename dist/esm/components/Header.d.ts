@@ -1,3 +1,6 @@
 import React from "react";
-declare function Header(): React.JSX.Element;
+export interface HeaderProps {
+    nomeProva: string;
+}
+declare const Header: React.FC<HeaderProps>;
 export default Header;
