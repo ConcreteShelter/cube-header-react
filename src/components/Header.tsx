@@ -6,27 +6,23 @@ import { Link } from "react-router-dom";
 //import FlagDropdown from "./FlagDropDown";
 import { useSelector } from "react-redux";
 import React from "react";
-import { envVariables } from "../types";
+import { envVariables, HeaderAuthState } from "../types";
+import { useKeycloak } from "@react-keycloak/web";
+import { HeaderContainerProps } from "./HeaderWithAuthProvider";
 
-export interface HeaderProps {
-  cubeLogoPic: string;
-  envVariables: envVariables;
-  mainLogoEndpoint: string;
-  redirectPortalUrl: string;
-}
-
-const Header: React.FC<HeaderProps> = ({ cubeLogoPic, envVariables, mainLogoEndpoint, redirectPortalUrl }) => {
+const Header: React.FC<HeaderContainerProps> = ({
+  cubeLogoPic,
+  envVariables,
+  mainLogoEndpoint,
+  redirectPortalUrl,
+}) => {
   // Stato per gestire la visualizzazione del dropdown
   const [showDropdown, setShowDropdown] = useState(false);
   const [showUserDropdown, setShowUserDropdown] = useState(false);
 
-  //const user = useSelector((state: RootState) => state.user.value);
-  const user = {
-    name: "nome",
-    surname: "cognome",
-  };
+  const user = useSelector((state: HeaderAuthState) => state.user.value);
 
-  //const {keycloak} = useKeycloak();
+  const { keycloak } = useKeycloak();
 
   // Calcola il nome completo dell'utente
   const fullName = user ? `${user.name || ""} ${user.surname || ""}` : "Utente";
@@ -42,9 +38,9 @@ const Header: React.FC<HeaderProps> = ({ cubeLogoPic, envVariables, mainLogoEndp
     setShowDropdown(false);
   };
 
-    const redirectCubePortal = () => {
-        window.location.href = redirectPortalUrl;
-    };
+  const redirectCubePortal = () => {
+    window.location.href = redirectPortalUrl;
+  };
 
   return (
     <>
@@ -78,21 +74,21 @@ const Header: React.FC<HeaderProps> = ({ cubeLogoPic, envVariables, mainLogoEndp
           </div>
 
           {/* Colonna destra (utente e selettore di lingua) */}
-          {/* <div className="flex items-center justify-center lg:justify-end">
+          <div className="flex items-center justify-center lg:justify-end">
             {keycloak?.authenticated && (
-              <UserProfile
-                showUserDropdown={showUserDropdown}
-                toggleUserDropdown={toggleUserDropdown}
-                user={user}
-                fullName={fullName}
-              />
+            //   <UserProfile
+            //     showUserDropdown={showUserDropdown}
+            //     toggleUserDropdown={toggleUserDropdown}
+            //     user={user}
+            //     fullName={fullName}
+            //   />
+            <p>meh</p>
             )}
-            <FlagDropdown
+            {/* <FlagDropdown
               showDropdown={showDropdown}
               toggleDropdown={toggleDropdown}
-            />
+            /> */}
           </div>
-        </div> */}
         </div>
       </header>
     </>
